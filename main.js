@@ -6,7 +6,7 @@ const {
     Menu,
     ipcMain
 } = require('electron')
-const robot = require('robotjs');
+var ks = require('node-key-sender');
 
 // This is the npm package `open`, it is used here to open all links in an external browser
 const open = require('open')
@@ -98,10 +98,10 @@ const createWindow = () => {
     }
 }
 
-// When we get a signal to type an emoji, use RobotJS to type it out
+// When we get a signal to type an emoji, use node-key-sender to type it out
 ipcMain.on('typeEmoji', (_event, arg) => {
     hideWindow();
-    robot.typeString(arg);
+    ks.sendText("asdf");
 });
 
 const toggleWindow = () => {
